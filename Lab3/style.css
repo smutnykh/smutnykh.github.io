@@ -1,0 +1,100 @@
+.generate * {
+    text-align: center;
+}
+
+.btn {
+    margin-top: 15px;
+}
+
+#table, #table2, #table3 {
+    border-collapse: separate;
+    padding: 0;
+    margin-top: 15px;
+}
+
+
+#table td, #table2 td, #table3 td{
+    text-align: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 2px;
+}
+
+#table > tbody > tr:first-of-type > td:first-of-type,  #table2 > tbody > tr:first-of-type > td:first-of-type, #table3 > tbody > tr:first-of-type > td:first-of-type{
+    border: none;
+}
+
+#player1, #player2, #simplify {
+    display: none;
+    margin: 16px 0 16px 0;
+}
+
+#range {
+    display: none;
+}
+
+.red {
+    background-color: #CD4A4C;
+}
+
+.blue {
+    background-color: #4285B4;
+}
+
+.green {
+    background-color: #77DD77;
+}
+
+p {
+    margin-top: 16px !important;
+    font-size: 24px;
+}
+
+#button3 {
+    margin-bottom: 16px;
+}
+
+table input {
+    text-align: center;
+    width: 38px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#caption1, #caption2, #caption {
+    caption-side: top;
+    text-align: center;
+    font: 24px "Segoe UI";
+}
+
+
+.explain{
+    text-align: center;
+}
+
+.hover {
+    background-color: #ececec;
+}
+
+li.nav-item  {
+    padding: 0 !important;
+}
+
+a.nav-link {
+    text-align: center;
+}
+
+.margin {
+    margin-top: 15px;
+    display: none !important;
+}
