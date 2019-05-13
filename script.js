@@ -39,7 +39,7 @@ function Generate() {
         let tabs = document.getElementById('myTab');
         tabs.style.setProperty('display', 'flex', 'important');
         table.id = 'table';
-        table.className = "table table-hover";
+        table.className = "table-hover";
         column.appendChild(table);
         let range = document.getElementById('range');
         range.style.display = 'block';
@@ -86,7 +86,7 @@ function Player1() {
     rowPlayer.innerHTML = '';
     let table2 = document.createElement('table');
     table2.id = 'table2';
-    table2.className = "table";
+    table2.className = "table-hover";
     let caption = document.createElement('caption');
     caption.id = 'caption1';
     caption.innerHTML = 'Таблиця гравця 1';
@@ -154,7 +154,7 @@ function Player2() {
     rowPlayer.innerHTML = '';
     let table3 = document.createElement('table');
     table3.id = 'table3';
-    table3.className = "table table-hover";
+    table3.className = "table-hover";
     let caption = document.createElement('caption');
     caption.id = 'caption2';
     caption.innerHTML = 'Таблиця гравця 2';
@@ -263,11 +263,10 @@ function Clicked(event) {
 function Simplify() {
     let table = document.getElementById('table');
     let simplifyTable = table.cloneNode(true);
-    simplifyTable.firstChild.textContent = '';
     console.log(simplifyTable.firstChild);
     let tmpTable = table.cloneNode(true);
-    tmpTable.firstChild.textContent = '';
     let flag = 0;
+    step = 0;
     let column = document.getElementById('col-simplify');
     column.innerHTML = '';
     do {
@@ -281,6 +280,8 @@ function Simplify() {
                     }
                 }
                 if (count === tmpTable.rows[0].cells.length - 1) {
+                    step++;
+                    simplifyTable.firstChild.textContent = 'Крок ' + step + ':';
                     simplifyTable.deleteRow(j);
                     flag = 1;
                     let tmp = simplifyTable.cloneNode(true);
@@ -305,6 +306,8 @@ function Simplify() {
                 }
                 console.log('count = ', count, 'length = ', tmpTable.rows.length - 1);
                 if (count === tmpTable.rows.length - 1) {
+                    step++;
+                    simplifyTable.firstChild.textContent = 'Крок ' + step + ':';
                     for (let n = 0; n <= tmpTable.rows.length - 1; n++) {
                         simplifyTable.rows[n].deleteCell(j);
                     }
@@ -319,6 +322,6 @@ function Simplify() {
         }
     } while (flag === 1);
     if(column.innerHTML === ''){
-        column.innerHTML = 'Неможливо спростити гру'
+        column.innerHTML = '<h2>Неможливо спростити гру</h2>';
     }
 }
