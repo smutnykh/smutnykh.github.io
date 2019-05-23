@@ -11,14 +11,14 @@
     margin-left: auto;
 }
 
-#table, #table2, #table3 {
+#table, #table2, #table3, #table_game {
     border-collapse: separate;
     padding: 0;
     margin-top: 15px;
 }
 
 
-#table td, #table2 td, #table3 td{
+#table td, #table2 td, #table3 td, #table_game td{
     text-align: center;
     width: 50px;
     height: 50px;
@@ -27,7 +27,7 @@
     padding: 3px;
 }
 
-#table > tbody > tr:first-of-type > td:first-of-type,  #table2 > tbody > tr:first-of-type > td:first-of-type, #table3 > tbody > tr:first-of-type > td:first-of-type{
+#table > tbody > tr:first-of-type > td:first-of-type,  #table2 > tbody > tr:first-of-type > td:first-of-type, #table3 > tbody > tr:first-of-type > td:first-of-type, #table_game > tbody > tr:first-of-type > td:first-of-type{
     border: none;
 }
 
@@ -76,7 +76,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-#caption1, #caption2, #caption {
+#caption1, #caption2, #caption, #caption_game, #info {
     caption-side: top;
     text-align: center;
     font: 24px "Segoe UI";
@@ -106,4 +106,41 @@ a.nav-link {
 
 #col-simplify {
     text-align: center;
+}
+
+.beta {
+    border-color: #1e88e5 !important;
+}
+
+.alpha {
+    border-color: #ed4c67 !important;
+}
+
+.dot {
+    border-color: #06483a !important;
+}
+
+.blue {
+    background-color: #007bff;
+}
+
+.red {
+    background-color: #c92434;
+}
+
+.formula {
+    margin-top: 10px;
+    background-color: #28a745;
+    padding-top: 10px;
+    color: white;
+    padding-bottom: 10px;
+    font: 24px "Segoe UI";
+    text-align: center;
+    width: 100%;
+}
+
+#my-canvas1, #my-canvas2 {
+    width: 500px;
+    height: 550px;
+    margin: 30px auto 30px auto;
 }
