@@ -47,6 +47,10 @@ function Generate() {
         table.addEventListener('mouseout', UnHover);
         let columnSimplify = document.getElementById('col-simplify');
         columnSimplify.innerHTML = '';
+        let player1 = document.getElementById('player1');
+        let player2 = document.getElementById('player2');
+        player1.style.display = 'block';
+        player2.style.display = 'block';
     }
     else
         alert("Некоректний ввід стратегій гравців");
@@ -69,11 +73,7 @@ function Fill() {
                 table.rows[i].cells[j].firstChild.value = Math.floor(Math.random() * (max - min + 1)) + min;
             }
         }
-        let player1 = document.getElementById('player1');
-        let player2 = document.getElementById('player2');
         let simplify = document.getElementById('simplify');
-        player1.style.display = 'block';
-        player2.style.display = 'block';
         simplify.style.display = 'block';
         let column = document.getElementById('col-simplify');
         column.innerHTML = '';
@@ -359,6 +359,18 @@ function Simplify() {
         MakeLine('my-canvas2', +graphTable.rows[1].cells[1].firstChild.value, +graphTable.rows[1].cells[2].firstChild.value);
         MakeLine('my-canvas2', +graphTable.rows[2].cells[1].firstChild.value, +graphTable.rows[2].cells[2].firstChild.value);
     }
+    else if (+graphTable.rows.length === 3 && +graphTable.rows[0].cells.length !== 3){
+        DrawGraph('column-my-canvas1', 'my-canvas1', 'a', graphTable.rows[1].cells[0].textContent.substring(1, graphTable.rows[1].cells[0].textContent.length), graphTable.rows[2].cells[0].textContent.substring(1, graphTable.rows[1].cells[0].textContent.length), 'p');
+        for(let i = 1; i < graphTable.rows[0].cells.length; i++){
+            MakeLine('my-canvas1', +graphTable.rows[1].cells[i].firstChild.value, +graphTable.rows[2].cells[i].firstChild.value);
+        }
+    }
+    else if (+graphTable.rows.length !== 3 && +graphTable.rows[0].cells.length === 3){
+        DrawGraph('column-my-canvas2', 'my-canvas2', 'b', graphTable.rows[1].cells[0].textContent.substring(1, graphTable.rows[0].cells[1].textContent.length), graphTable.rows[0].cells[2].textContent.substring(1, graphTable.rows[1].cells[0].textContent.length), 'q');
+        for(let i = 1; i < graphTable.rows.length; i++){
+            MakeLine('my-canvas2', +graphTable.rows[i].cells[1].firstChild.value, +graphTable.rows[i].cells[2].firstChild.value);
+        }
+    }
     else{
         let info = document.getElementById('info');
         info.textContent = 'Неможливо подубувати графіки';
@@ -468,14 +480,15 @@ function Game_Price() {
     for(let i = 1; i < table2.rows.length - 1; i++) {
         if(+table2.rows[i].cells[table2.rows[0].cells.length - 1].textContent === max){
             table2.rows[i].cells[table2.rows[0].cells.length - 1].className = 'alpha';
-            console.log(table2.rows[table2.rows.length - 1].cells[i].textContent);
+            console.log(table2);
         }
 
     }
     if(max === min) {
         for (let i = 1; i < table2.rows.length - 1; i++) {
             for (let j = 1; j < table2.rows[0].cells.length - 1; j++) {
-                if(+table2.rows[i].cells[j].textContent === min){
+                if(+table2.rows[i].cells[j].textContent === min && +table2.rows[i].cells[table2.rows[0].cells.length - 1].textContent === min
+                && +table2.rows[table2.rows.length - 1].cells[j].textContent === min){
                     table2.rows[i].cells[j].className = 'dot';
                 }
             }
